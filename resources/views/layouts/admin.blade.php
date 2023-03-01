@@ -17,13 +17,15 @@
 	<title>Admin Dashboard</title>
 
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 	<link href="vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-	<link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
+	<link rel="stylesheet" href="vendor/nouislider/nouislider.min.css"> -->
+
+	<link href="{{ asset("assets/admin/css/style.css") }}" rel="stylesheet">
 
 	<!-- Style css -->
-	<link href="css/style.css" rel="stylesheet">
+	<!-- <link href="css/style.css" rel="stylesheet"> -->
 
 </head>
 
@@ -868,7 +870,7 @@
 										</svg>
 										<span class="ms-2">Inbox </span>
 									</a>
-									<a href="page-error-404.html" class="dropdown-item ai-icon">
+									<a href="{{route('logout')}}" class="dropdown-item ai-icon">
 										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18"
 											viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 											stroke-linejoin="round">
@@ -1323,25 +1325,31 @@
         Scripts
     ***********************************-->
 	<!-- Required vendors -->
-	<script src="vendor/global/global.min.js"></script>
+	<!-- <script src="vendor/global/global.min.js"></script>
 	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
-	<script src="vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script> -->
 
 	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
+	<!-- <script src="vendor/apexchart/apexchart.js"></script> -->
 
-	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
+	<!-- <script src="vendor/chart.js/Chart.bundle.min.js"></script> -->
 
 	<!-- Chart piety plugin files -->
-	<script src="vendor/peity/jquery.peity.min.js"></script>
+	<!-- <script src="vendor/peity/jquery.peity.min.js"></script> -->
 	<!-- Dashboard 1 -->
-	<script src="js/dashboard/dashboard-1.js"></script>
+	<!-- <script src="js/dashboard/dashboard-1.js"></script> -->
 
-	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+	<!-- <script src="vendor/owl-carousel/owl.carousel.js"></script>
 
 	<script src="js/custom.min.js"></script>
 	<script src="js/dlabnav-init.js"></script>
-	<script src="js/demo.js"></script>
+	<script src="js/demo.js"></script> -->
+
+	<script src="{{ asset("assets/admin/vendor/global/global.min.js") }}"></script>
+<script src="{{ asset("assets/admin/js/custom.min.js") }}"></script>
+<script src="{{ asset("assets/admin/js/dlabnav-init.js") }}"></script>
+
+
 	<!-- <script src="js/styleSwitcher.js"></script> -->
 	<script>
 		function cardsCenter() {

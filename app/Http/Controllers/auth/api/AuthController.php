@@ -85,7 +85,6 @@ class AuthController extends Controller
         $removeToken = JWTAuth::invalidate(JWTAuth::getToken());
 
         if ($removeToken) {
-            //return response JSON
             return response()->json([
                 'success' => true,
                 'message' => 'Logout Berhasil!',
