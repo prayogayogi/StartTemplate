@@ -1,37 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="robots" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-    <meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-    <meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
-    <meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
-    <meta name="format-detection" content="telephone=no">
-
-    <!-- PAGE TITLE HERE -->
-    <title>{{ $title ?? config('app.name') }}</title>
-
-    <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset("assets/admin/images/favicon.png") }}">
-    <link href="{{ asset("assets/admin/css/style.css") }}" rel="stylesheet">
-
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{ asset('assets/assets/images/favicon-32x32.png') }}" type="image/png" />
+	<!--plugins-->
+	<link href="{{ asset('assets/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('assets/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('assets/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+	<!-- loader-->
+	<link href="{{ asset('assets/assets/css/pace.min.css') }}" rel="stylesheet" />
+	<script src="{{ asset('assets/assets/js/pace.min.js') }}"></script>
+	<!-- Bootstrap CSS -->
+	<link href="{{ asset('assets/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/assets/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/assets/css/icons.css') }}" rel="stylesheet">
+	<title>Syndron - Bootstrap5 Admin Template</title>
 </head>
 
-<body class="vh-100">
+<body class="bg-login">
+	<!--wrapper-->
+	<div class="wrapper">
+		@yield('content')
+	</div>
+	<!--end wrapper-->
+	<!-- Bootstrap JS -->
+	<script src="{{ asset('assets/assets/js/bootstrap.bundle.min.js') }}"></script>
+	<!--plugins-->
+	<script src="{{ asset('assets/assets/js/jquery.min.js') }}"></script>
+	<script src="{{ asset('assets/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+	<script src="{{ asset('assets/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+	<script src="{{ asset('assets/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+	<!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$("#show_hide_password a").on('click', function (event) {
+				event.preventDefault();
+				if ($('#show_hide_password input').attr("type") == "text") {
+					$('#show_hide_password input').attr('type', 'password');
+					$('#show_hide_password i').addClass("bx-hide");
+					$('#show_hide_password i').removeClass("bx-show");
+				} else if ($('#show_hide_password input').attr("type") == "password") {
+					$('#show_hide_password input').attr('type', 'text');
+					$('#show_hide_password i').removeClass("bx-hide");
+					$('#show_hide_password i').addClass("bx-show");
+				}
+			});
+		});
+	</script>
 
-@yield("content")
-
-
-<!--Scripts-->
-<!-- Required vendors -->
-<script src="{{ asset("assets/admin/vendor/global/global.min.js") }}"></script>
-<script src="{{ asset("assets/admin/js/custom.min.js") }}"></script>
-<script src="{{ asset("assets/admin/js/dlabnav-init.js") }}"></script>
+	<!--app JS-->
+	<script src="{{ asset('assets/assets/js/app.js') }}"></script>
 </body>
+
 </html>
