@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+	@stack('start-style')
+	
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,42 +21,34 @@
 	<link href="{{ asset('assets/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/assets/css/icons.css') }}" rel="stylesheet">
-	<title>Syndron - Bootstrap5 Admin Template</title>
+	<title>{{ $title ?? ''  }}</title>
+
+	@stack('end-style')
 </head>
 
 <body class="bg-login">
+	
 	<!--wrapper-->
 	<div class="wrapper">
 		@yield('content')
 	</div>
 	<!--end wrapper-->
+
+	@stack('start-script')
+	
 	<!-- Bootstrap JS -->
 	<script src="{{ asset('assets/assets/js/bootstrap.bundle.min.js') }}"></script>
+
 	<!--plugins-->
 	<script src="{{ asset('assets/assets/js/jquery.min.js') }}"></script>
 	<script src="{{ asset('assets/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
 	<script src="{{ asset('assets/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
 	<script src="{{ asset('assets/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-	<!--Password show & hide js -->
-	<script>
-		$(document).ready(function () {
-			$("#show_hide_password a").on('click', function (event) {
-				event.preventDefault();
-				if ($('#show_hide_password input').attr("type") == "text") {
-					$('#show_hide_password input').attr('type', 'password');
-					$('#show_hide_password i').addClass("bx-hide");
-					$('#show_hide_password i').removeClass("bx-show");
-				} else if ($('#show_hide_password input').attr("type") == "password") {
-					$('#show_hide_password input').attr('type', 'text');
-					$('#show_hide_password i').removeClass("bx-hide");
-					$('#show_hide_password i').addClass("bx-show");
-				}
-			});
-		});
-	</script>
 
 	<!--app JS-->
 	<script src="{{ asset('assets/assets/js/app.js') }}"></script>
+	
+	@stack('end-script')	
 </body>
 
 </html>

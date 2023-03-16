@@ -1,4 +1,5 @@
 @extends("layouts.auth", ["title" => "Login"])
+
 @section("content")
 <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
     <div class="container-fluid">
@@ -12,15 +13,7 @@
                                 <p>Don't have an account yet? <a href="{{ route("register") }}">Sign up here</a>
                                 </p>
                             </div>
-                            <div class="d-grid">
-                                <a class="btn my-4 shadow-sm btn-white" href="javascript:;">
-                                <span class="d-flex justify-content-center align-items-center">
-                                    <img class="me-2" src="{{ asset('assets/assets/images/icons/search.svg') }}" width="16" alt="Image Description">
-                                    <span>Sign in with Google</span>
-                                </span>
-                                </a> <a href="javascript:;" class="btn btn-facebook"><i class="bx bxl-facebook"></i>Sign in with Facebook</a>
-                            </div>
-                            <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
+                            <div class="login-separater text-center mb-5"> <span>OR SIGN IN WITH EMAIL</span>
                                 <hr/>
                             </div>
                             <div class="form-body">
@@ -66,9 +59,29 @@
                 </div>
             </div>
         </div>
-        <!--end row-->
     </div>
 </div>
 @endsection
+
+{{-- Custome script --}}
+@push('end-script')
+    <!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$("#show_hide_password a").on('click', function (event) {
+				event.preventDefault();
+				if ($('#show_hide_password input').attr("type") == "text") {
+					$('#show_hide_password input').attr('type', 'password');
+					$('#show_hide_password i').addClass("bx-hide");
+					$('#show_hide_password i').removeClass("bx-show");
+				} else if ($('#show_hide_password input').attr("type") == "password") {
+					$('#show_hide_password input').attr('type', 'text');
+					$('#show_hide_password i').removeClass("bx-hide");
+					$('#show_hide_password i').addClass("bx-show");
+				}
+			});
+		});
+	</script>
+@endpush
 
 
