@@ -21,7 +21,7 @@
                                     @csrf
                                     <div class="col-12">
                                         <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                        <input type="email" name="email" class="form-control @error("email") is-invalid @enderror" id="inputEmailAddress" placeholder="Email Address">
+                                        <input type="email" value="{{ old('email') }}" name="email" class="form-control @error("email") is-invalid @enderror" id="inputEmailAddress" placeholder="Email Address">
                                         @error('email')
                                             <div id="inputEmailAddress" class="invalid-feedback">
                                                 {{ $message }}
@@ -31,7 +31,7 @@
                                     <div class="col-12">
                                         <label for="inputChoosePassword" class="form-label">Enter Password</label>
                                         <div class="input-group" id="show_hide_password">
-                                            <input type="password" name="password" class="form-control border-end-0 @error('password') is-invalid @enderror" id="inputChoosePassword" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                            <input type="password" value="{{ old('password') }}" name="password" class="form-control border-end-0 @error('password') is-invalid @enderror" id="inputChoosePassword" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                             @error('password')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

@@ -1,4 +1,5 @@
 @extends("layouts.auth", ["title" => "Register"])
+
 @section('content')
 <div class="container mt-5">
     <div class="row">
@@ -8,7 +9,7 @@
                     @if (session('status') == 'verification-link-sent')
                         <div class="alert alert-success text-center">A new email verification link has been emailed to you!</div>
                     @endif
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-3">
                         <h3>Verify e-mail address</h3>
                         <p>You must verify your email address to access this page.</p>
                     </div>
@@ -17,8 +18,13 @@
                         <button type="submit" class="btn btn-primary">Resend verification email</button>
                     </form>
                 </div>
-                <p class="mt-3 mb-0 text-center"><small>Issues with the verification process or entered the wrong email?
-                    <br>Please sign up with <a href="/register-retry">another</a> email address.</small></p>
+                <p class="mt-3 mb-0 text-center">
+                    <small>Issues with the verification process or entered the wrong email?
+                        <br>Please sign up with 
+                        <a href="/register-retry">another</a> 
+                        email address.
+                    </small>
+                </p>
             </div>
         </div>
     </div>

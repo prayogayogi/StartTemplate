@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\MasterController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/', function () {
 });
 
 
-Route::resource('home',HomeController::class)->middleware('verified');
+// Route Admin
+Route::prefix('/admin')->name('admin.')->group(function () {
+    // Route Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('verified');
 
-
+    // Route data master data
+    // Route::get('/master', [MasterController::class, 'index'])->name('master');
+    Route::resource('/master', MasterController::class);
+});

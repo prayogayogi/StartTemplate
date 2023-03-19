@@ -1,32 +1,46 @@
-<!--*Sidebar start**-->
-<div class="dlabnav">
-    <div class="dlabnav-scroll">
-        <ul class="metismenu" id="menu">
-            <li class="mm-active">
-                <a class="mm-active" href="javascript:void()" aria-expanded="false">
-                    <i class="fas fa-home"></i>
-                    <span class="nav-text">Dashboard</span>
-                </a>
-            </li>
-
-            <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                    <i class="fas fa-info-circle"></i>
-                    <span class="nav-text">Setings</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li><a href="app-profile.html">Profile</a></li>
-                    <li><a href="post-details.html">Post Details</a></li>
-                    <li><a href="app-calender.html">Page</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Manajement Menu</a>
-                        <ul aria-expanded="false">
-                            <li><a href="email-compose.html">{{ $name }}</a></li>
-                            <li><a href="email-inbox.html">Inbox</a></li>
-                            <li><a href="email-read.html">Read</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+<div class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+        <div>
+            <img src="{{ asset('assets/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
+        </div>
+        <div>
+            <h4 class="logo-text">E-Presensi</h4>
+        </div>
+        <div class="toggle-icon ms-auto">
+            <i class='bx bx-arrow-to-left'></i>
+        </div>
     </div>
+
+    <!--navigation-->
+    <ul class="metismenu" id="menu">
+        <li>
+            <a href="{{ route('admin.dashboard') }}">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Dashboard</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-grid-alt"></i>
+                </div>
+                <div class="menu-title">Master data</div>
+            </a>
+            <ul>
+                <li> 
+                    <a href="{{ route('admin.master.index') }}"><i class="bx bx-right-arrow-alt"></i>Master</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-label">Data</li>
+        <li>
+            <a href="widgets.html">
+                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                </div>
+                <div class="menu-title">Widgets</div>
+            </a>
+        </li>
+    </ul>
+    <!--end navigation-->
+
 </div>
-<!--**Sidebar end**-->
