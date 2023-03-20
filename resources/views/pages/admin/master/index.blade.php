@@ -17,7 +17,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Add data</button>
+                    <a href="{{ route('admin.master.create') }}" class="btn btn-primary">Add data</a>
                 </div>
             </div>
         </div>

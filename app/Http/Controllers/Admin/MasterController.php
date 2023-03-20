@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Master;
-use Yajra\Datatables\Datatables;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Admin\MasterRequest;
 use App\Http\Repositories\Admin\MasterRepository;
-
+use App\Repositories\Admin\MasterRepository as AdminMasterRepository;
 
 class MasterController extends Controller
 {
@@ -16,9 +19,9 @@ class MasterController extends Controller
      * 
      * @return 
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        protected AdminMasterRepository $masterRepository
+    ) {
     }
 
 
@@ -29,18 +32,8 @@ class MasterController extends Controller
      */
     public function index(Request $request)
     {
-        $master = Master::orderBy('created_at', 'DESC')->get(['id', 'name', 'age', 'created_at', 'updated_at']);
         if ($request->ajax()) {
-            return Datatables::of($master)
-                ->addColumn('action', "actionDataTable.admin.master.edit")
-                ->addIndexColumn()
-                ->editColumn('created_at', function ($master) {
-                    return $master->created_at->format('d-m-Y');
-                })
-                ->editColumn('updated_at', function ($master) {
-                    return $master->created_at->format('d-m-Y');
-                })
-                ->toJson();
+            return $this->masterRepository->index($request);
         }
         return view('pages.admin.master.index');
     }
@@ -50,9 +43,9 @@ class MasterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('pages.admin.master.create');
     }
 
     /**
@@ -61,9 +54,10 @@ class MasterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MasterRequest $request): RedirectResponse
     {
-        //
+        $this->masterRepository->store($request);
+        return redirect()->route('admin.master.index');
     }
 
     /**
@@ -83,9 +77,9 @@ class MasterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master $master)
+    public function edit(Master $master): View
     {
-        return response()->view('pages.admin.master.edit', [
+        return view('pages.admin.master.edit', [
             'master' => $master
         ]);
     }
@@ -97,10 +91,9 @@ class MasterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master $master)
+    public function update(Request $request, Master $master): RedirectResponse
     {
-        $data = $request->input();
-        $master->update($data);
+        $this->masterRepository->store($request, $master);
         return redirect()->route('admin.master.index');
     }
 
@@ -110,7 +103,7 @@ class MasterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master $master)
+    public function destroy(Master $master): RedirectResponse
     {
         $master->delete();
         return redirect()->route('admin.master.index');
