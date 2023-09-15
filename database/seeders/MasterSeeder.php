@@ -12,7 +12,7 @@ class MasterSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         \App\Models\Master::factory(50)->create();
     }

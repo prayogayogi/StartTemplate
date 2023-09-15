@@ -33,6 +33,17 @@
             </ul>
         </li>
         <li class="menu-label">Data</li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    </div>
+                    <div class="menu-title">User Management</div>
+                </a>
+                <ul>
+                    <li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
+                    </li>
+                </ul>
+            </li>
         <li>
             <a href="widgets.html">
                 <div class="parent-icon"><i class='bx bx-cookie'></i>

@@ -21,11 +21,18 @@ Route::get('/', function () {
 
 
 // Route Admin
-Route::prefix('/admin')->name('admin.')->group(function () {
+Route::prefix('/admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
     // Route Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('verified');
 
     // Route data master data
-    // Route::get('/master', [MasterController::class, 'index'])->name('master');
     Route::resource('/master', MasterController::class);
 });
+
+Route::get('admin-page', function () {
+    return '<h1>Halaman untuk Admin</h1>';
+})->middleware('role:admin')->name('admin.page');
+
+Route::get('penulis-page', function () {
+    return '<h1>Halaman untuk penulis</h1';
+})->middleware('role:penulis')->name('penulis.page');
