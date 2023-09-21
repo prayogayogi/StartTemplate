@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Validation\UnauthorizedException;
+use Spatie\Permission\Exceptions\UnauthorizedException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler

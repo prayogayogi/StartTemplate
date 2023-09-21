@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="{{ asset('assets/assets/css/semi-dark.css') }}" />
 		<link rel="stylesheet" href="{{ asset('assets/assets/css/header-colors.css') }}" />
 	@stack('after-style')
-	<title>{{ $title ?? 'E-Presensi' }}</title>
+	<title>{{ $title ?? 'Start Template' }}</title>
 </head>
 
 <body>

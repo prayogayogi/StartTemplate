@@ -26,13 +26,13 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'verified'])->group
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('verified');
 
     // Route data master data
-    Route::resource('/master', MasterController::class);
+    Route::resource('/master', MasterController::class)->middleware('RoleRedirect');
 });
 
 Route::get('admin-page', function () {
     return '<h1>Halaman untuk Admin</h1>';
-})->middleware('role:admin')->name('admin.page');
+})->middleware(['role:admin'])->name('admin.page');
 
 Route::get('penulis-page', function () {
     return '<h1>Halaman untuk penulis</h1';
-})->middleware('role:penulis')->name('penulis.page');
+})->middleware(['role:penulis'])->name('penulis.page');
