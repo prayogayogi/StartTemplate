@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\MasterController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Backend\MasterController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,18 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'verified'])->group
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('verified');
 
     // Route data master data
-    Route::resource('/master', MasterController::class)->middleware('RoleRedirect');
+    Route::resource('/master', MasterController::class);
+
+    // Route User
+    Route::prefix('security')->name('security.')->group(function () {
+        Route::resource('user', UserController::class);
+    });
 });
 
-Route::get('admin-page', function () {
-    return '<h1>Halaman untuk Admin</h1>';
-})->middleware(['role:admin'])->name('admin.page');
+// Route::get('admin-page', function () {
+//     return '<h1>Halaman untuk Admin</h1>';
+// })->middleware(['role:admin'])->name('admin.page');
 
-Route::get('penulis-page', function () {
-    return '<h1>Halaman untuk penulis</h1';
-})->middleware(['role:penulis'])->name('penulis.page');
+// Route::get('penulis-page', function () {
+//     return '<h1>Halaman untuk penulis</h1';
+// })->middleware(['role:penulis'])->name('penulis.page');

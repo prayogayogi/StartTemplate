@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="ginktech">
+    <meta name="keywords" content="">
+
 	<!--favicon-->
 	<link rel="icon" href="{{ asset('assets/assets/images/favicon-32x32.png') }}" type="image/png" />
+	
 	<!-- loader-->
 	<link href="{{ asset('assets/assets/css/pace.min.css') }}" rel="stylesheet" />
 	<script src="{{ asset('assets/assets/js/pace.min.js') }}"></script>

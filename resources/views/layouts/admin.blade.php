@@ -2,35 +2,41 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="ginktech">
+    <meta name="keywords" content="">
 
 	<!--favicon-->
-	<link rel="icon" href="{{ asset('assets/assets/images/favicon-32x32.png') }}" type="image/png" />
+	<link rel="icon" href="{{ asset('assets/backend/images/favicon-32x32.png') }}" type="image/png" />
+
 	@stack('before-style')
 		<!--plugins-->
-		<link href="{{ asset('assets/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-		<link href="{{ asset('assets/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-		<link href="{{ asset('assets/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-		<link href="{{ asset('assets/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/backend/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/backend/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/backend/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+		<link href="{{ asset('assets/backend/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 
 		<!-- loader-->
-		<link href="{{ asset('assets/assets/css/pace.min.css') }}" rel="stylesheet" />
-		<script src="{{ asset('assets/assets/js/pace.min.js') }}"></script>
+		<link href="{{ asset('assets/backend/css/pace.min.css') }}" rel="stylesheet" />
+		<script src="{{ asset('assets/backend/js/pace.min.js') }}"></script>
 
 		<!-- Bootstrap CSS -->
-		<link href="{{ asset('assets/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-		<link href="{{ asset('assets/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
-		<link href="{{ asset('assets/assets/css/app.css') }}" rel="stylesheet">
-		<link href="{{ asset('assets/assets/css/icons.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/backend/css/bootstrap-extended.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/backend/css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/backend/css/icons.css') }}" rel="stylesheet">
 
 		<!-- Theme Style CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/assets/css/dark-theme.css') }}" />
-		<link rel="stylesheet" href="{{ asset('assets/assets/css/semi-dark.css') }}" />
-		<link rel="stylesheet" href="{{ asset('assets/assets/css/header-colors.css') }}" />
+		<link rel="stylesheet" href="{{ asset('assets/backend/css/dark-theme.css') }}" />
+		<link rel="stylesheet" href="{{ asset('assets/backend/css/semi-dark.css') }}" />
+		<link rel="stylesheet" href="{{ asset('assets/backend/css/header-colors.css') }}" />
 	@stack('after-style')
-	<title>{{ $title ?? 'Start Template' }}</title>
+	
+	<title>{{ $title ?? "" }} | {{ config('app.name') }}</title>
 </head>
 
 <body>
@@ -72,19 +78,19 @@
 
 	@stack('before-script')
 		<!-- Bootstrap JS -->
-		<script src="{{ asset('assets/assets/js/bootstrap.bundle.min.js') }}"></script>
+		<script src="{{ asset('assets/backend/js/bootstrap.bundle.min.js') }}"></script>
 		<!--plugins-->
-		<script src="{{ asset('assets/assets/js/jquery.min.js') }}"></script>
-		<script src="{{ asset('assets/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
-		<script src="{{ asset('assets/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-		<script src="{{ asset('assets/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-		<script src="{{ asset('assets/assets/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
-		{{-- <script src="{{ asset('assets/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script> --}}
-		{{-- <script src="{{ asset('assets/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script> --}}
-		<script src="{{ asset('assets/assets/js/index.js') }}"></script>
-		{{-- <script src="{{ asset('assets/assets/js/table-datatable.js') }}"></script> --}}
+		<script src="{{ asset('assets/backend/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('assets/backend/plugins/simplebar/js/simplebar.min.js') }}"></script>
+		<script src="{{ asset('assets/backend/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+		<script src="{{ asset('assets/backend/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+		<script src="{{ asset('assets/backend/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
+		{{-- <script src="{{ asset('assets/backend/plugins/datatable/js/jquery.dataTables.min.js') }}"></script> --}}
+		{{-- <script src="{{ asset('assets/backend/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script> --}}
+		<script src="{{ asset('assets/backend/js/index.js') }}"></script>
+		{{-- <script src="{{ asset('assets/backend/js/table-datatable.js') }}"></script> --}}
 		<!--app JS-->
-		<script src="{{ asset('assets/assets/js/app.js') }}"></script>
+		<script src="{{ asset('assets/backend/js/app.js') }}"></script>
 	@stack('after-script')
 	
 </body>
